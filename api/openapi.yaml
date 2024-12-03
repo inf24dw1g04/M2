@@ -1,0 +1,428 @@
+openapi: 3.0.0
+info:
+  title: Event Management API
+  description: "API for managing events, organizers, tickets, and participants."
+  contact:
+    name: Group 04
+    email: my.student.email@institution.country
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+  description: Localhost API Server
+  variables:
+    basePath:
+      default: /
+paths:
+  /organizers:
+    get:
+      tags:
+      - Organizers
+      summary: Retrieve a list of organizers
+      operationId: organizersGET
+      responses:
+        "200":
+          description: A list of organizers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organizer'
+      x-swagger-router-controller: Organizers
+    post:
+      tags:
+      - Organizers
+      summary: Create a new organizer
+      operationId: organizersPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organizer'
+        required: true
+      responses:
+        "201":
+          description: The organizer was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organizer'
+      x-swagger-router-controller: Organizers
+  /events:
+    get:
+      tags:
+      - Events
+      summary: Retrieve a list of events
+      operationId: eventsGET
+      responses:
+        "200":
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+      x-swagger-router-controller: Events
+    post:
+      tags:
+      - Events
+      summary: Create a new event
+      operationId: eventsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "201":
+          description: The event was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+      x-swagger-router-controller: Events
+  /events/{eventId}:
+    get:
+      tags:
+      - Events
+      summary: Retrieve a specific event
+      operationId: eventsEventIdGET
+      parameters:
+      - name: eventId
+        in: path
+        description: ID of the event to retrieve
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: The requested event
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: Event not found
+      x-swagger-router-controller: Events
+    put:
+      tags:
+      - Events
+      summary: Update an existing event
+      operationId: eventsEventIdPUT
+      parameters:
+      - name: eventId
+        in: path
+        description: ID of the event to update
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      responses:
+        "200":
+          description: The event was updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+        "404":
+          description: Event not found
+      x-swagger-router-controller: Events
+    delete:
+      tags:
+      - Events
+      summary: Delete an event
+      operationId: eventsEventIdDELETE
+      parameters:
+      - name: eventId
+        in: path
+        description: ID of the event to delete
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "204":
+          description: Event deleted successfully
+        "404":
+          description: Event not found
+      x-swagger-router-controller: Events
+  /tickets:
+    get:
+      tags:
+      - Tickets
+      summary: Retrieve a list of tickets
+      operationId: ticketsGET
+      responses:
+        "200":
+          description: A list of tickets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+      x-swagger-router-controller: Tickets
+    post:
+      tags:
+      - Tickets
+      summary: Create a new ticket
+      operationId: ticketsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+        required: true
+      responses:
+        "201":
+          description: The ticket was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+      x-swagger-router-controller: Tickets
+  /tickets/event/{eventId}:
+    get:
+      tags:
+      - Tickets
+      summary: Retrieve tickets for a specific event
+      operationId: ticketsEventEventIdGET
+      parameters:
+      - name: eventId
+        in: path
+        description: ID of the event to retrieve tickets for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Tickets for the specified event
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+        "404":
+          description: Event not found or no tickets available
+      x-swagger-router-controller: Tickets
+  /participants:
+    get:
+      tags:
+      - Participants
+      summary: Retrieve a list of participants
+      operationId: participantsGET
+      responses:
+        "200":
+          description: A list of participants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+      x-swagger-router-controller: Participants
+    post:
+      tags:
+      - Participants
+      summary: Create a new participant
+      operationId: participantsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Participant'
+        required: true
+      responses:
+        "201":
+          description: The participant was created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Participant'
+      x-swagger-router-controller: Participants
+  /participants/ticket/{ticketId}:
+    get:
+      tags:
+      - Participants
+      summary: Retrieve participants for a specific ticket
+      operationId: participantsTicketTicketIdGET
+      parameters:
+      - name: ticketId
+        in: path
+        description: ID of the ticket to retrieve participants for
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: Participants associated with the specified ticket
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+        "404":
+          description: Ticket not found or no participants associated
+      x-swagger-router-controller: Participants
+  /participants/{participantId}:
+    put:
+      tags:
+      - Participants
+      summary: Update a participant's details
+      operationId: participantsParticipantIdPUT
+      parameters:
+      - name: participantId
+        in: path
+        description: ID of the participant to update
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Participant'
+        required: true
+      responses:
+        "200":
+          description: The participant was updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Participant'
+        "404":
+          description: Participant not found
+      x-swagger-router-controller: Participants
+components:
+  schemas:
+    Organizer:
+      title: Organizer
+      required:
+      - email
+      - name
+      - phone
+      type: object
+      properties:
+        organizerId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+      example:
+        phone: phone
+        organizerId: 0
+        name: name
+        email: email
+    Event:
+      title: Event
+      required:
+      - date
+      - description
+      - time
+      - location
+      - organizerId
+      - title
+      type: object
+      properties:
+        eventId:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date
+        time:
+          type: string
+          format: time
+        location:
+          type: string
+        organizerId:
+          type: integer
+          format: int64
+      example:
+        eventId: 0
+        date: 2000-01-23
+        time: time
+        title: title
+        organizerId: 6
+        location: location
+        description: description
+    Ticket:
+      title: Ticket
+      required:
+      - eventId
+      - price
+      - type
+      type: object
+      properties:
+        ticketId:
+          type: integer
+          format: int64
+        type:
+          type: string
+          enum:
+          - normal
+          - VIP
+          - premium
+        price:
+          type: number
+          format: float
+        eventId:
+          type: integer
+          format: int64
+      example:
+        price: 6.0274563
+        type: normal
+        eventId: 1
+        ticketId: 0
+    Participant:
+      title: Participant
+      required:
+      - email
+      - ticketId
+      - name
+      - status
+      type: object
+      properties:
+        participantId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
+        status:
+          type: string
+          enum:
+          - confirmed
+          - pending
+        ticketId:
+          type: integer
+          format: int64
+      example:
+        name: name
+        participantId: 0
+        email: email
+        status: confirmed
+        ticketId: 6
