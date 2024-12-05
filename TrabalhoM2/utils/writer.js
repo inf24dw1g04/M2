@@ -24,6 +24,7 @@ var writeJson = exports.writeJson = function(response, arg1, arg2) {
       code = arg1;
     }
   }
+
   if(code && arg1) {
     payload = arg1;
   }
@@ -32,12 +33,22 @@ var writeJson = exports.writeJson = function(response, arg1, arg2) {
   }
 
   if(!code) {
-    
     code = 200;
   }
-  if(typeof payload === 'object') {
-    payload = JSON.stringify(payload, null, 2);
+
+  // Garantir que o payload seja serializável em JSON
+  if (typeof payload === 'object' && payload !== null) {
+    try {
+      payload = JSON.stringify(payload, null, 2);
+    } catch (error) {
+      console.error("Erro ao serializar o payload:", error);
+      payload = JSON.stringify({ error: "Erro ao processar a resposta" });
+    }
   }
+  else if (typeof payload !== 'string') {
+    payload = String(payload || '');
+  }
+
   response.writeHead(code, {'Content-Type': 'application/json'});
   response.end(payload);
 }

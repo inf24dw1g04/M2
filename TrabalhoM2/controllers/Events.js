@@ -44,33 +44,66 @@ module.exports.eventsPOST = function eventsPOST(req, res, next, body) {
     });
 };
 
-
 module.exports.deleteEventById = function deleteEventById(req, res, next, eventId) {
-  // Validar se o parâmetro eventId foi fornecido
   if (!eventId) {
     return utils.writeJson(res, { error: 'O ID do evento é obrigatório.' }, 400);
   }
-
-  // Query para excluir o evento no banco de dados
-  const query = 'DELETE FROM events WHERE eventId = ?';
-
-  // Executar a query no banco de dados
-  db.query(query, [eventId], function (err, result) {
-    // Verificar se ocorreu algum erro no banco de dados
+  db.beginTransaction(function (err) {
     if (err) {
-      console.error("Erro ao excluir evento:", err); // Log para depuração
+      console.error("Erro ao iniciar transação:", err);
       return utils.writeJson(res, { error: 'Erro interno do servidor.' }, 500);
     }
 
-    // Verificar se o evento foi encontrado e excluído
-    if (result.affectedRows === 0) {
-      return utils.writeJson(res, { message: 'Evento não encontrado.' }, 404);
-    }
+    const deleteParticipantsQuery = 'DELETE FROM participants WHERE ticketId IN (SELECT ticketId FROM tickets WHERE eventId = ?)';
+    db.query(deleteParticipantsQuery, [eventId], function (err) {
+      if (err) {
+        return db.rollback(function () {
+          console.error("Erro ao excluir participantes:", err);
+          return utils.writeJson(res, { error: 'Erro interno do servidor.' }, 500);
+        });
+      }
 
-    // Resposta de sucesso
-    return utils.writeJson(res, { message: 'Evento excluído com sucesso.' }, 200);
+      const deleteTicketsQuery = 'DELETE FROM tickets WHERE eventId = ?';
+      db.query(deleteTicketsQuery, [eventId], function (err) {
+        if (err) {
+          return db.rollback(function () {
+            console.error("Erro ao excluir tickets:", err);
+            return utils.writeJson(res, { error: 'Erro interno do servidor.' }, 500);
+          });
+        }
+
+        const deleteEventQuery = 'DELETE FROM events WHERE eventId = ?';
+        db.query(deleteEventQuery, [eventId], function (err, result) {
+          if (err) {
+            return db.rollback(function () {
+              console.error("Erro ao excluir evento:", err);
+              return utils.writeJson(res, { error: 'Erro interno do servidor.' }, 500);
+            });
+          }
+
+          if (result.affectedRows === 0) {
+            return db.rollback(function () {
+              return utils.writeJson(res, { message: 'Evento não encontrado.' }, 404);
+            });
+          }
+
+          db.commit(function (err) {
+            if (err) {
+              return db.rollback(function () {
+                console.error("Erro ao commitar transação:", err);
+                return utils.writeJson(res, { error: 'Erro interno do servidor.' }, 500);
+              });
+            }
+
+            return utils.writeJson(res, { message: 'Evento excluído com sucesso.' }, 200);
+          });
+        });
+      });
+    });
   });
 };
+
+
 
 
 module.exports.updateEventById = function updateEventById(req, res, next, body, eventId) {

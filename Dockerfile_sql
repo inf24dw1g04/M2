@@ -1,0 +1,3 @@
+FROM mysql 
+COPY ./SQL/BASE_DE_DADOS.sql /docker-entrypoint-initdb.d/BASE_DE_DADOS.sql
+ 

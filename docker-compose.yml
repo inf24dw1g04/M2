@@ -1,0 +1,46 @@
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: app-trabalho:latest
+    container_name: app-node
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    networks:
+      - app_network
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: "12345678"
+      DB_NAME: sistema_gestao_events
+
+  mysql:
+    image: mysql:latest
+    container_name: data-app
+    environment:
+      MYSQL_ROOT_PASSWORD: "12345678"
+      MYSQL_DATABASE: "sistema_gestao_events"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - "3308:3306"
+    volumes:
+      - data:/var/lib/mysql
+      - ./SQL:/docker-entrypoint-initdb.d
+    networks:
+      - app_network
+
+networks:
+  app_network:
+
+volumes:
+  data:
