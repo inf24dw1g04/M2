@@ -6,7 +6,7 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 
 ## Organização do Repositório
 
- * `TrabalhoM2`: Código-fonte do projeto. [TrabalhoM2 folde](TrabalhoM2/).
+ * `TrabalhoM2`: Código-fonte do projeto. [TrabalhoM2 foldeR](TrabalhoM2/).
  * `DoC`: Documentação E Relatório. [doc folder](doc/).
  * `SQL`: Base de Dados MySql. [SQL folder](SQL/).
 
