@@ -8,12 +8,11 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 
  * `TrabalhoM2`: Código-fonte do projeto. [TrabalhoM2 folde](TrabalhoM2/).
  * `DoC`: Documentação E Relatório. [doc folder](doc/).
- * `SQL`: Base de Dados MySql. [doc folder](SQL/).
+ * `SQL`: Base de Dados MySql. [SQL folder](SQL/).
 
 ## Galeria
+![image](https://github.com/user-attachments/assets/3203150d-5c40-45ef-82bf-de843d6db97c)
 
-_Por favor, forneça uma galeria do resultado final, com imagens pequenas._
-Uma [tabela](https://www.markdownguide.org/extended-syntax/#tables) pode ser útil para organizar as imagens.
 
 ## Tecnologias Utilizadas
 
