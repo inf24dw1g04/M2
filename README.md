@@ -6,7 +6,7 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 
 ## Organização do Repositório
 
- * `src`: Código-fonte do projeto. [src folder](src/).
+ * `src`: Código-fonte do projeto. [src folder](TrabalhoM2/).
  * `doc`: Documentação, incluindo relatórios detalhados. [doc folder](doc/).
  * `Initial`: [OpenApi document](api/openapi.yaml)
 
@@ -23,22 +23,10 @@ Uma [tabela](https://www.markdownguide.org/extended-syntax/#tables) pode ser út
  * PHP: [Documentação oficial](https://www.php.net/)
  * Node.js: [Documentação oficial](https://nodejs.org/en/)
 
-### OUTRAS
-
  * MySQL: [Documentação oficial](https://www.mysql.com/)
  * Docker: [Documentação oficial](https://www.docker.com/)
  * Postman: [Documentação oficial](https://www.postman.com/)
  * Markdown: [Documentação oficial](https://www.w3schools.io/file/markdown-introduction/)
-
-### Frameworks e Bibliotecas
-
-* Docker
-* Multipass
-* NodeJS
-* JQuery
-* Laravel
-* Bootstrap
-* ReactJS
 
 ## Relatório
 ### Apresentação do Projeto
@@ -48,7 +36,7 @@ Uma [tabela](https://www.markdownguide.org/extended-syntax/#tables) pode ser út
 ### Produto
 * Capítulo 3: [Product](doc/c3.md)
 ### Apresentação
-* Capítulo 4: [Presentation](doc/c4.md)
+* Capítulo 4: [Presentation](doc/API_Manenager_Event_Sistem.pdf)
 
 ## Links Importantes
 * Organização do GitHub: [inf24dw1g04](https://github.com/inf24dw1gXX)
@@ -69,7 +57,7 @@ A system to manage events (both in-person and online), including registration of
 
 ## Repository Organization
 
- * `src`: Project source code. [src folder](src/).
+ * `src`: Project source code. [src folder](TrabalhoM2/).
  * `doc`: Documentation, including detailed reports. [doc folder](doc/).
  * `Initial`: [OpenApi document](api/openapi.yaml).
 
@@ -86,22 +74,11 @@ A [table](https://www.markdownguide.org/extended-syntax/#tables) can be useful t
  * PHP: [Official Documentation](https://www.php.net/)
  * Node.js: [Official Documentation](https://nodejs.org/en/)
 
-### OTHERS
-
  * MySQL: [Official Documentation](https://www.mysql.com/)
  * Docker: [Official Documentation](https://www.docker.com/)
  * Postman: [Official Documentation](https://www.postman.com/)
  * Markdown: [Official Documentation](https://www.w3schools.io/file/markdown-introduction/)
 
-### Frameworks and Libraries
-
-* Docker
-* Multipass
-* NodeJS
-* JQuery
-* Laravel
-* Bootstrap
-* ReactJS
 
 ## Report
 ### Project Overview
@@ -111,7 +88,7 @@ A [table](https://www.markdownguide.org/extended-syntax/#tables) can be useful t
 ### Product
 * Chapter 3: [Product](doc/c3.md)
 ### Presentation
-* Chapter 4: [Presentation](doc/c4.md)
+* Chapter 4: [Presentation](doc/API_Manenager_Event_Sistem.pdf)
 
 ## Important Links
 * GitHub Organization: [inf24dw1g04](https://github.com/inf24dw1gXX)
