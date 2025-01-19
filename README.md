@@ -6,9 +6,9 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 
 ## Organização do Repositório
 
- * `src`: Código-fonte do projeto. [src folder](TrabalhoM2/).
- * `doc`: Documentação, incluindo relatórios detalhados. [doc folder](doc/).
- * `Initial`: [OpenApi document](api/openapi.yaml)
+ * `TrabalhoM2`: Código-fonte do projeto. [TrabalhoM2 folde](TrabalhoM2/).
+ * `DoC`: Documentação E Relatório. [doc folder](doc/).
+ * `SQL`: Base de Dados MySql. [doc folder](SQL/).
 
 ## Galeria
 
@@ -18,11 +18,7 @@ Uma [tabela](https://www.markdownguide.org/extended-syntax/#tables) pode ser út
 ## Tecnologias Utilizadas
 
  * XML: [Documentação oficial](https://www.w3.org/XML/)
- * HTML5: [Documentação oficial](https://html.spec.whatwg.org/multipage/) + [CSS3](https://www.w3.org/Style/CSS/)
- * Javascript: [Documentação oficial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
- * PHP: [Documentação oficial](https://www.php.net/)
  * Node.js: [Documentação oficial](https://nodejs.org/en/)
-
  * MySQL: [Documentação oficial](https://www.mysql.com/)
  * Docker: [Documentação oficial](https://www.docker.com/)
  * Postman: [Documentação oficial](https://www.postman.com/)
@@ -47,57 +43,6 @@ Uma [tabela](https://www.markdownguide.org/extended-syntax/#tables) pode ser út
 * Carolina de Barbosa Fernandes [@Carolfbar](https://github.com/Carolfbar).
 * Pedro Miguel Soares Venda [@PedroVenda27](https://github.com/PedroVenda27).
 
----
-
-# Event Management System
-Repository to host the project developed for **'Web Development I'**, a subject in the 2nd year of the University of Maia, Informatics Course. Developed by Group 04: [@Carolfbar](https://github.com/Carolfbar),[@BeatrizASLima](https://github.com/BeatrizASLima),[@PedroVenda27](https://github.com/PedroVenda27).
-
-## Short Theme Description
-A system to manage events (both in-person and online), including registration of events, participants, tickets, and organizers. It supports CRUD operations and provides reports and filters to streamline management tasks.
-
-## Repository Organization
-
- * `src`: Project source code. [src folder](TrabalhoM2/).
- * `doc`: Documentation, including detailed reports. [doc folder](doc/).
- * `Initial`: [OpenApi document](api/openapi.yaml).
-
-## Gallery
-
-_Please provide a gallery of the final result, with small images._
-A [table](https://www.markdownguide.org/extended-syntax/#tables) can be useful to organize the images.
-
-## Technologies Used
-
- * XML: [Official Documentation](https://www.w3.org/XML/)
- * HTML5: [Official Documentation](https://html.spec.whatwg.org/multipage/) + [CSS3](https://www.w3.org/Style/CSS/)
- * JavaScript: [Official Documentation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
- * PHP: [Official Documentation](https://www.php.net/)
- * Node.js: [Official Documentation](https://nodejs.org/en/)
-
- * MySQL: [Official Documentation](https://www.mysql.com/)
- * Docker: [Official Documentation](https://www.docker.com/)
- * Postman: [Official Documentation](https://www.postman.com/)
- * Markdown: [Official Documentation](https://www.w3schools.io/file/markdown-introduction/)
-
-
-## Report
-### Project Overview
-* Chapter 1: [Project presentation](doc/c1.md)
-### Resources
-* Chapter 2: [Resources](doc/c2.md)
-### Product
-* Chapter 3: [Product](doc/c3.md)
-### Presentation
-* Chapter 4: [Presentation](doc/API_Manenager_Event_Sistem.pdf)
-
-## Important Links
-* GitHub Organization: [inf24dw1g04](https://github.com/inf24dw1gXX)
-* Public DockerHub Repository: [inf24dw1g04](https://hub.docker.com/)
-
-## Group 04:  
-* Beatriz Almeida Silva de Lima [@BeatrizASLima](https://github.com/BeatrizASLima).
-* Carolina de Barbosa Fernandes [@Carolfbar](https://github.com/Carolfbar).
-* Pedro Miguel Soares Venda [@PedroVenda27](https://github.com/PedroVenda27).
 
 
 
