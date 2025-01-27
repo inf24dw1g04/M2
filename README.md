@@ -34,8 +34,8 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 * Capítulo 4: [Presentation](doc/API_Event_Sistem_Manager.pdf)
 
 ## Links Importantes
-* Organização do GitHub: [inf24dw1g04](https://github.com/inf24dw1gXX)
-* Repositório público do DockerHub: [inf24dw1g04](https://hub.docker.com/)
+* Organização do GitHub: [inf24dw1g04](https://github.com/inf24dw1g04)
+* Repositório público do DockerHub: [inf24dw1g04](https://hub.docker.com/search?q=inf24dw1g04%2F)
 
 ## Grupo 04:  
 * Beatriz Almeida Silva de Lima [@BeatrizASLima](https://github.com/BeatrizASLima).
