@@ -31,7 +31,7 @@ Um sistema para gerir eventos (presenciais ou online), incluindo cadastro de eve
 ### Produto
 * Capítulo 3: [Product](doc/c3.md)
 ### Apresentação
-* Capítulo 4: [Presentation](doc/API_Manenager_Event_Sistem.pdf)
+* Capítulo 4: [Presentation](doc/API_Event_Sistem_Manager.pdf)
 
 ## Links Importantes
 * Organização do GitHub: [inf24dw1g04](https://github.com/inf24dw1gXX)
